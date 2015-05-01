@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Messyjs examples</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../src/messy.js"></script>
+    <style>
+        dd {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body style="padding: 5px;">
+<h1>Messyjs example
+    <small>Messyjs is easy!</small>
+</h1>
+<br/>
+
+<form style="padding: 5px;">
+    <p>
+        We use <code>on</code>, <code>add</code> or <code>subscribe</code> methods to listen to an event and
+        use <code>off</code>, <code>remove</code> or <code>unsubscribe</code> methods to remove our listener.
+    </p>
+
+    <div class="checkbox">
+        <label for="enableevent"><input type="checkbox" id="enableevent" onchange="toggleSubscription(this.checked)"/>Subscribe
+            to event</label>
+    </div>
+    <p>
+        Then we can use <code>trigger</code>, <code>broadcast</code> or <code>propagate</code> or <code>emit</code> or <code>publish</code>
+        methods to propagate an event and call all subscribing callbacks.
+    </p>
+
+    <label for="typehere">Type something here:</label>
+    <input type="text" id="typehere" onkeydown="messy.trigger('typing', this.value)"/>
+
+    <br/>
+    <label for="results">See the results here:</label>
+    <span id="results"></span>
+    <hr/>
+    <p>
+        messy was built for use in tiny to small sized projects and should be easy to replace with something more
+        heavy-duty.
+        different namings was used for the same methods so that you can use what ever that you are more familiar
+        with/prefer/is more in sync with your future messaging library.
+        A rule of thumb is that there are only three methods:
+    <dl>
+        <dt><code>on("event name", callback)</code> or <code>add("event name", callback)</code> or <code>subscribe("event
+            name", callback)</code></dt>
+        <dd>This method attaches a callback to an event (or channel) which is basically a string</dd>
+        <dt><code>trigger("event name")</code> or <code>broadcast("event name")</code> or <code>propagate("event
+            name")</code> or <code>emit("event name")</code> or <code>publish("event name")</code>
+            <small>(they may seem lexically inappropriate)</small>
+        </dt>
+        <dd>Which notifies all callbacks subscribing to the triggered event (or channel) to get executed</dd>
+        <dt><code>off("event name", callback)</code> or <code>remove("event name", callback)</code> or <code>unsubscribe("event
+            name", callback)</code></dt>
+        <dd>Which removes the callback function from the subscribes list, if called with only event name will remove all subscribers from that event, if called without parameters will remove all subscribers from all events</dd>
+    </dl>
+    </p>
+</form>
+<script type="text/javascript">
+    messy = new Messy();
+
+    function toggleSubscription(subscribe) {
+        if (subscribe)
+            messy.on('typing', updateResult);
+        else
+            messy.off('typing', updateResult);
+    }
+    function updateResult(value) {
+        var result_text = document.getElementById('results');
+        result_text.innerHTML = "you have typed " + value.length + " characters!";
+    }
+</script>
+</body>
+</html>

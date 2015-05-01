@@ -1,0 +1,43 @@
+{
+  "name": "messyjs",
+  "version": "1.0.0",
+  "description": "A super light messaging library",
+  "author": "Mohammad Mahdi Assar <m.assar2002@gmail.com> (https://github.com/mohas)",
+  "keywords": [
+    "messaging",
+    "service bus"
+  ],
+  "main": "src/messy.js",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohas/messy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohas/messy/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "jshint": "latest",
+    "gulp": "latest",
+    "gulp-uglify": "latest",
+    "gulp-rename": "latest"
+  },
+  "scripts": {
+    "start": "gulp build && node server.js",
+    "lint": "jshint .",
+    "build": "gulp build"
+  },
+  "ignore": [
+    ".jshintignore",
+    ".gitignore",
+    ".npmignore",
+    ".jshintrc"
+  ]
+}

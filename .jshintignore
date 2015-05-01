@@ -1,0 +1,4 @@
+node_modules
+tests/lib
+server/public/scripts/lib/ngDraggable2.js
+build
