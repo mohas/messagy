@@ -6,9 +6,9 @@ var DEST = 'build/';
 
 gulp.task('build', [], function () {
     return gulp.src([
-        'src/messy.js'
+        'src/messagy.js'
     ])
         .pipe(uglify())
-        .pipe(rename('messy.min.js'))
+        .pipe(rename('messagy.min.js'))
         .pipe(gulp.dest(DEST));
 });

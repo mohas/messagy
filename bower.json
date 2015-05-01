@@ -1,5 +1,5 @@
 {
-  "name": "messyjs",
+  "name": "messagy",
   "version": "1.0.0",
   "description": "A super light messaging library",
   "author": "Mohammad Mahdi Assar <m.assar2002@gmail.com> (https://github.com/mohas)",
@@ -7,16 +7,16 @@
     "messaging",
     "service bus"
   ],
-  "main": "src/messy.js",
+  "main": "src/messagy.js",
   "engines": {
     "node": "*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mohas/messy.git"
+    "url": "https://github.com/mohas/messagy.git"
   },
   "bugs": {
-    "url": "https://github.com/mohas/messy/issues"
+    "url": "https://github.com/mohas/messagy/issues"
   },
   "licenses": [
     {

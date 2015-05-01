@@ -1,15 +1,15 @@
 [![MIT License][license-image]][license-url]
 
-# messy
+# messagy
 Simple messaging in ~750 bytes of code
 
 ## What is it?
-messyjs is yet another javascript messaging library and a very very tiny and minimalistic one.
+messagyjs is yet another javascript messaging library and a very very tiny and minimalistic one.
 
 ## Why another messaging library?
 There are lots of robust messaging libraries supporting many patterns, but sometimes you just want something very simple
 for your small project or sample code or prototype so if things got serious you can easily replace it with something more robust and
-heavy-duty. And so messy saves the day. messy is a piece of simple code and it is here so you don't have to write your own or use a bit more
+heavy-duty. And so messagy saves the day. messagy is a piece of simple code and it is here so you don't have to write your own or use a bit more
 complicated alternatives and focus on getting things started.
 
 ## How can I use it?
@@ -17,9 +17,9 @@ There are only three methods in the library: on(), trigger() and off().
 
 ### Example
 ```javascript
-    var messy = new Messy();
-    messy.on('case of event', function(){ alert('event happened!'); });
-    messy.trigger('case of event');
+    var messagy = new Messagy();
+    messagy.on('case of event', function(){ alert('event happened!'); });
+    messagy.trigger('case of event');
 ```
 
 It's that simple.
@@ -27,19 +27,19 @@ It's that simple.
 You can also pass arguments to the listening callback:
 
 ```javascript
-    var messy = new Messy();
-    messy.on('case of event', function(value){ alert(value); });
-    messy.trigger('case of event', 'event happened!');
+    var messagy = new Messagy();
+    messagy.on('case of event', function(value){ alert(value); });
+    messagy.trigger('case of event', 'event happened!');
 ```
 
 To remove your subscription:
 
 ```javascript
-    messy.off('case of event', your_callback_here);
+    messagy.off('case of event', your_callback_here);
     //or to remove all subscribers to an event indiscriminately
-    messy.off('case of event');
+    messagy.off('case of event');
     //or to remove all subscribers altogether
-    messy.off();
+    messagy.off();
 ```
 
 For convenience each method have a set of synonyms that you can call interchangeably:
@@ -52,7 +52,7 @@ Calling these synonyms have no advantage over each other and they are present ju
 used in other libraries (jquery uses on/off/trigger in angular we have on/emit/broadcast and so on...)
 
 ## Applications
-messy can thrive it simple applications:
+messagy can thrive it simple applications:
 
 * small applications
 * prototyping

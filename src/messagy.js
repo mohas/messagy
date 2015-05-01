@@ -4,39 +4,39 @@
     var globalScope = (typeof global !== 'undefined' && (typeof window === 'undefined' || window === global.window)) ? global : this;
 
     if(hasModule)
-        module.exports = Messy;
+        module.exports = Messagy;
     //use with amd
     else if (typeof define === 'function' && define.amd) {
-        define("messy", [], function () {
-            return Messy;
+        define("messagy", [], function () {
+            return Messagy;
         });
     }
     //for use in browser
     else{
-        globalScope.Messy = Messy;
+        globalScope.Messagy = Messagy;
     }
 
-    function Messy() {
+    function Messagy() {
 
         var mesh = [];
 
-        var messy = {};
+        var messagy = {};
 
-        messy.on = on;
-        messy.add = on;
-        messy.subscribe = on;
+        messagy.on = on;
+        messagy.add = on;
+        messagy.subscribe = on;
 
-        messy.broadcast = broadcast;
-        messy.trigger = broadcast;
-        messy.emit = broadcast;
-        messy.propagate = broadcast;
-        messy.publish = broadcast;
+        messagy.broadcast = broadcast;
+        messagy.trigger = broadcast;
+        messagy.emit = broadcast;
+        messagy.propagate = broadcast;
+        messagy.publish = broadcast;
 
-        messy.off = off;
-        messy.remove = off;
-        messy.unsubscribe = off;
+        messagy.off = off;
+        messagy.remove = off;
+        messagy.unsubscribe = off;
 
-        return messy;
+        return messagy;
 
         //Private functions/////////////////
 

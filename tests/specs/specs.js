@@ -1,5 +1,5 @@
-describe("messyjs: ", function() {
-    var messy;
+describe("messagyjs: ", function() {
+    var messagy;
     var MockObject = function() {
         return {
             fnCallbackExeCount: 0,
@@ -15,7 +15,7 @@ describe("messyjs: ", function() {
     var mockObject;
 
     beforeEach(function() {
-        messy = new Messy();
+        messagy = new Messagy();
         mockObject = new MockObject();
         spyOn(mockObject, 'fnCallback');
         spyOn(mockObject, 'fnCallback2');
@@ -29,25 +29,25 @@ describe("messyjs: ", function() {
 
         it("should subscribe a callback function to an event", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
 
         it("should be equivalent to calling add()", function() {
 
-            messy.add('eventhappened', mockObject.fnCallback);
+            messagy.add('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
 
         it("should be equivalent to calling subscribe()", function() {
 
-            messy.subscribe('eventhappened', mockObject.fnCallback);
+            messagy.subscribe('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
     });
@@ -55,28 +55,28 @@ describe("messyjs: ", function() {
     describe("off()", function() {
 
         beforeEach(function() {
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
         });
 
         it("should un-subscribe a callback function from an event", function() {
 
-            messy.off('eventhappened', mockObject.fnCallback);
+            messagy.off('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
 
             expect(mockObject.fnCallback).not.toHaveBeenCalled();
         });
 
         it("should un-subscribe all callback functions from the specified event when called with one parameter", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
-            messy.on('eventhappened', mockObject.fnCallbackWParams);
-            messy.on('event2happened', mockObject.fnCallback2);
+            messagy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallbackWParams);
+            messagy.on('event2happened', mockObject.fnCallback2);
 
-            messy.off('eventhappened');
+            messagy.off('eventhappened');
 
-            messy.trigger('eventhappened');
-            messy.trigger('event2happened');
+            messagy.trigger('eventhappened');
+            messagy.trigger('event2happened');
 
             expect(mockObject.fnCallback).not.toHaveBeenCalled();
             expect(mockObject.fnCallbackWParams).not.toHaveBeenCalled();
@@ -85,14 +85,14 @@ describe("messyjs: ", function() {
 
         it("should un-subscribe all callback functions when called without parameter", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
-            messy.on('eventhappened', mockObject.fnCallbackWParams);
-            messy.on('event2happened', mockObject.fnCallback2);
+            messagy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallbackWParams);
+            messagy.on('event2happened', mockObject.fnCallback2);
 
-            messy.off();
+            messagy.off();
 
-            messy.trigger('eventhappened');
-            messy.trigger('event2happened');
+            messagy.trigger('eventhappened');
+            messagy.trigger('event2happened');
 
             expect(mockObject.fnCallback).not.toHaveBeenCalled();
             expect(mockObject.fnCallbackWParams).not.toHaveBeenCalled();
@@ -101,18 +101,18 @@ describe("messyjs: ", function() {
 
         it("should be equivalent to calling remove()", function() {
 
-            messy.remove('eventhappened', mockObject.fnCallback);
+            messagy.remove('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
 
             expect(mockObject.fnCallback).not.toHaveBeenCalled();
         });
 
         it("should be equivalent to calling unsubscribe()", function() {
 
-            messy.unsubscribe('eventhappened', mockObject.fnCallback);
+            messagy.unsubscribe('eventhappened', mockObject.fnCallback);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
 
             expect(mockObject.fnCallback).not.toHaveBeenCalled();
         });
@@ -122,82 +122,82 @@ describe("messyjs: ", function() {
 
         it("should execute callbacks according to the subscribed event", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
-            messy.on('event2happened', mockObject.fnCallback2);
+            messagy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('event2happened', mockObject.fnCallback2);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
             expect(mockObject.fnCallback).toHaveBeenCalled();
             expect(mockObject.fnCallback2).not.toHaveBeenCalled();
 
-            messy.trigger('event2happened');
+            messagy.trigger('event2happened');
             expect(mockObject.fnCallback.calls.count()).toEqual(1);
             expect(mockObject.fnCallback2).toHaveBeenCalled();
         });
 
         it("should execute all callbacks subscribing to an event", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
-            messy.on('eventhappened', mockObject.fnCallback2);
+            messagy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback2);
 
-            messy.trigger('eventhappened');
+            messagy.trigger('eventhappened');
             expect(mockObject.fnCallback).toHaveBeenCalled();
             expect(mockObject.fnCallback2).toHaveBeenCalled();
         });
 
         it("should pass any arguments to all callbacks subscribing to an event", function() {
 
-            messy.on('eventhappened', mockObject.fnCallbackWParams);
-            messy.on('eventhappened', mockObject.fnCallback2WParams);
+            messagy.on('eventhappened', mockObject.fnCallbackWParams);
+            messagy.on('eventhappened', mockObject.fnCallback2WParams);
 
-            messy.trigger('eventhappened', 'parameter!');
+            messagy.trigger('eventhappened', 'parameter!');
             expect(mockObject.fnCallbackWParams).toHaveBeenCalledWith('parameter!');
             expect(mockObject.fnCallback2WParams).toHaveBeenCalledWith('parameter!');
         });
 
         it("should pass as many arguments as it can to all callbacks subscribing to an event", function() {
 
-            messy.on('eventhappened', mockObject.fnCallbackWParams);
-            messy.on('event2happened', mockObject.fnCallbackW2Params);
+            messagy.on('eventhappened', mockObject.fnCallbackWParams);
+            messagy.on('event2happened', mockObject.fnCallbackW2Params);
 
-            messy.trigger('eventhappened', 'a', 'b', 'c');
+            messagy.trigger('eventhappened', 'a', 'b', 'c');
             expect(mockObject.fnCallbackWParams).toHaveBeenCalledWith('a', 'b', 'c');
 
-            messy.trigger('event2happened', 'a', 'b', 'c');
+            messagy.trigger('event2happened', 'a', 'b', 'c');
             expect(mockObject.fnCallbackW2Params).toHaveBeenCalledWith('a', 'b', 'c');
         });
 
         it("should be equivalent to calling broadcast()", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
 
-            messy.broadcast('eventhappened');
+            messagy.broadcast('eventhappened');
 
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
 
         it("should be equivalent to calling propagate()", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
 
-            messy.propagate('eventhappened');
+            messagy.propagate('eventhappened');
 
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
 
         it("should be equivalent to calling emit()", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
 
-            messy.emit('eventhappened');
+            messagy.emit('eventhappened');
 
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
 
         it("should be equivalent to calling publish()", function() {
 
-            messy.on('eventhappened', mockObject.fnCallback);
+            messagy.on('eventhappened', mockObject.fnCallback);
 
-            messy.publish('eventhappened');
+            messagy.publish('eventhappened');
 
             expect(mockObject.fnCallback).toHaveBeenCalled();
         });
