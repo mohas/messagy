@@ -1,4 +1,4 @@
-[![MIT License][license-image]][license-url]
+[![MIT License][license-image]][license-url] [![Build Status](https://travis-ci.org/mohas/messagy.svg)](https://travis-ci.org/mohas/messagy) [![npm package](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/messagy)
 
 # messagy
 Simple messaging in ~750 bytes of code
