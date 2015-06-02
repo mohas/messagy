@@ -60,5 +60,11 @@ messagy can thrive it simple applications:
 * where performance is of utmost importance
 * where you just want no fuss simple messaging
 
+## Contribution
+You are more than welcome to contribute to the project in forms of adding issues or making pull requests.
+Please consider that messagy is to be a very lightweight and fast library. Please add unit tests to your contributions, currently I use jasmine
+for in browser testing, but will add another framework for nodejs testing from command line, like mocha or node unit.
+Please report any issues or feature requests via github project issues.
+
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
